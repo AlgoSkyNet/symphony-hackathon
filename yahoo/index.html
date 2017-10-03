@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OpenFin Finance</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    fin.desktop.InterApplicationBus.subscribe('*', 'context', (message) => {
+        window.location.href = `https://finance.yahoo.com/quote/${message}`;
+    })
+    window.location.href = `https://finance.yahoo.com/quote/ibm`;
+        
+    document.addEventListener("DOMContentLoaded", event => {
+        setInterval(()=> {
+            let one = document.getElementById('mrt-node-Lead-0-FinanceHeader')
+            let two = document.getElementById('mrt-node-Lead-1-FeatureBar')
+            let three = document.getElementById('YDC-UH');
+            let four = document.getElementById('Nav-0-DesktopNav');
+            const hide = el => {
+                if(el & el.style.display !== 'none') {
+                    el.style.display = 'none';
+                }
+            }
+            hide(one);
+            hide(two);
+            hide(three);
+            hide(four);
+        },500);
+    })
+</script>
+</html>
