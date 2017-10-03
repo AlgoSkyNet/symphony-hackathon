@@ -22458,6 +22458,8 @@ var Main = function (_React$Component) {
                             listentingApps.push(app.uuid);
                         }
                     });
+                    console.log('Im in the PROMISE');
+                    console.log(listentingApps);
                     resolve(listentingApps);
                 });
             });

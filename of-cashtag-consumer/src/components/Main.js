@@ -26,6 +26,8 @@ export default class Main extends React.Component {
                         listentingApps.push(app.uuid);
                     }
                 })
+                console.log('Im in the PROMISE')
+                console.log(listentingApps);
                 resolve(listentingApps);
             })
         })
