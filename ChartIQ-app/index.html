@@ -1,0 +1,25 @@
+<script>
+var initWpfChart = function(){
+fin.desktop.Application.getCurrent().getManifest(function (manifest) {
+  var version = manifest.runtime.version;
+  var appUuid = manifest.startup_app.uuid;
+
+  var args = '--parentuuid=' + appUuid + ' --runtimeversion=' + version + ' --hidden=true';
+
+  fin.desktop.System.launchExternalProcess({
+    alias: 'hyperblotter-chart',
+    arguments: args
+  },() => {console.log("success");
+  fin.desktop.InterApplicationBus.publish('tickerSelection', {
+      symbolName: "ibm"
+    });
+}, (err) => {console.log(err);});
+});
+}
+
+fin.desktop.main(function(){
+  initWpfChart();
+});
+
+
+</script>

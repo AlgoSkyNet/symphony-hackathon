@@ -1,0 +1,23 @@
+{
+  "name": "ChartIQ-demo",
+  "version": "0.0.1",
+  "description": "Symphony Foundation Hackathon Demo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openfin/symphony-hackathon"
+  },
+  "author": "Nicholas Kolba",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/openfin/symphony-hackathonf/issues"
+  },
+  "homepage": "https://github.com/openfin/symphony-hackathon",
+  "scripts": {
+    "start": "http-server -c-1 -p 5011",
+    "build": "cat ./js/window.js ./js/notify.js ./js/screensnippet.js ./js/main.js  > ./bundle/bundle.js"
+  },
+  "devDependencies": {
+    "http-server": "0.8.5",
+    "openfin-cli": "1.1.5"
+  }
+}

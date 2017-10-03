@@ -1,0 +1,28 @@
+{
+    "startup_app": {
+        "name": "ChartIQ",
+        "description": "ChartIQ Demo App",
+        "url": "http://localhost:5011/index.html",
+        "icon": "http://cdn.openfin.co/demos/hyperblotter/images/hyperblotter_icon.ico",
+        "uuid": "chartIQ-demo",
+        "autoShow": false
+    },
+    "runtime": {
+        "arguments": "",
+        "version": "beta"
+    },
+    "appAssets": [
+        {
+            "src": "http://localhost:5011/assets/HyperblotterChart.zip",
+            "alias": "hyperblotter-chart",
+            "target": "HyperblotterChart.exe",
+            "version": "1.0.0"
+        }
+    ],
+    "shortcut": {
+        "company": "OpenFin",
+        "description": "ChartIQ App",
+        "icon": "http://cdn.openfin.co/demos/hyperblotter/images/hyperblotter_icon.ico",
+        "name": "ChartIQ Demo App"
+    }
+}
