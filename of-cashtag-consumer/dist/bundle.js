@@ -22437,9 +22437,6 @@ var Main = function (_React$Component) {
             launched: false,
             context: ''
         };
-        _this.setState({
-            context: _this.getContext(window.location.search)
-        });
         _this.publishContext();
         var app = fin.desktop.Application.getCurrent();
         app.addEventListener('run-requested', function (event) {
@@ -22452,6 +22449,13 @@ var Main = function (_React$Component) {
     }
 
     _createClass(Main, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.setState({
+                context: this.getContext(window.location.search)
+            });
+        }
+    }, {
         key: 'getRunningApplications',
         value: function getRunningApplications() {
             return new Promise(function (resolve) {
@@ -22492,14 +22496,15 @@ var Main = function (_React$Component) {
                     queryParamsString = queryParamsString.substr(1);
                 }
 
-                // let objArrary = queryParamsString.split('=');
-                // console.log(objArray);
-                // let word = objArray[1];
+                var objArrary = queryParamsString.split('=');
+
+                if (objArray[1] === '$') {
+                    objArray[1] = objArray[1].substr(1);
+                }
                 this.setState({
                     launched: true
                 });
-                var word = 'hello';
-                return word;
+                return objArray[1];
             } else {
                 var currentContext = this.state.context;
 
@@ -22510,10 +22515,10 @@ var Main = function (_React$Component) {
                     queryParamsString = queryParamsString.substr(1);
                 }
 
-                var objArrary = queryParamsString.split('=');
-                var _word = objArray[1];
-                if (_word.slice(0, 5) === 'launch') {
-                    var appName = _word.substr(7, _word.length - 1);
+                var _objArrary = queryParamsString.split('=');
+                var word = objArray[1];
+                if (word.slice(0, 5) === 'launch') {
+                    var appName = word.substr(7, word.length - 1);
                     console.log('appName ' + appName);
                     var newApp = new fin.desktop.Application({
                         name: appName,
@@ -22531,7 +22536,7 @@ var Main = function (_React$Component) {
                     });
                     return currentContext;
                 } else {
-                    return _word;
+                    return word;
                 }
             }
         }

@@ -8,9 +8,6 @@ export default class Main extends React.Component {
             launched: false,
             context: ''
         }
-        this.setState({
-            context: this.getContext(window.location.search)
-        });
         this.publishContext();
         const app = fin.desktop.Application.getCurrent();
         app.addEventListener('run-requested', (event) => {
@@ -18,6 +15,12 @@ export default class Main extends React.Component {
                 context: this.getContext(event.userAppConfigArgs)
             })
             this.publishContext();
+        });
+    }
+
+    componentDidMount() {
+        this.setState({
+            context: this.getContext(window.location.search)
         });
     }
 
@@ -56,14 +59,15 @@ export default class Main extends React.Component {
                 queryParamsString = queryParamsString.substr(1);
             }
 
-            // let objArrary = queryParamsString.split('=');
-            // console.log(objArray);
-            // let word = objArray[1];
+            let objArrary = queryParamsString.split('=');
+
+            if (objArray[1] === '$') {
+                objArray[1] = objArray[1].substr(1);
+            }
             this.setState({
                 launched: true
             })
-            let word = 'hello'
-            return word;
+            return objArray[1];
         } else {
             const currentContext = this.state.context;
 
