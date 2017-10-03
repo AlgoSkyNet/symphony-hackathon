@@ -22536,6 +22536,8 @@ var Main = function (_React$Component) {
                         }
                     }, function () {
                         newApp.run();
+                    }, function (err) {
+                        console.log(err);
                     });
                     console.log('returning current context');
                     console.log(currentContext);

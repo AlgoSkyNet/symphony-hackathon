@@ -98,7 +98,8 @@ export default class Main extends React.Component {
                         autoShow: true
                     }
                 },
-                () => { newApp.run() })
+                () => { newApp.run() }, 
+                (err) => { console.log(err) })
                 console.log('returning current context')
                 console.log(currentContext);
                 return currentContext;
