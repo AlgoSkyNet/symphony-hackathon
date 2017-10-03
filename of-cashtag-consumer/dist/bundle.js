@@ -22434,6 +22434,7 @@ var Main = function (_React$Component) {
 
         _this.state = {
             subscribers: [],
+            launched: false,
             context: _this.getContext(window.location.search)
         };
         _this.publishContext();
@@ -22479,6 +22480,18 @@ var Main = function (_React$Component) {
     }, {
         key: 'getContext',
         value: function getContext(queryParamsString) {
+            if (this.state.launched === false) {
+                if (queryParamsString[0] === '?') {
+                    queryParamsString = queryParamsString.substr(1);
+                }
+                if (queryParamsString[0] === '$') {
+                    queryParamsString = queryParamsString.substr(1);
+                }
+
+                var _objArrary = queryParamsString.split('=');
+                var _word = objArray[1];
+                return _word;
+            }
             var currentContext = this.state.context;
 
             if (queryParamsString[0] === '?') {
@@ -22489,7 +22502,7 @@ var Main = function (_React$Component) {
             }
 
             var objArrary = queryParamsString.split('=');
-            var word = objArray[0];
+            var word = objArray[1];
             if (word.slice(0, 5) === 'launch') {
                 var appName = word.substr(7, word.length - 1);
                 console.log('appName ' + appName);
@@ -22509,7 +22522,7 @@ var Main = function (_React$Component) {
                 });
                 return currentContext;
             } else {
-                return objArrary[1];
+                return word;
             }
         }
     }, {

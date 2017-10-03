@@ -5,6 +5,7 @@ export default class Main extends React.Component {
         super(props)
         this.state = {
             subscribers: [],
+            launched: false,
             context: this.getContext(window.location.search)
         }
         this.publishContext();
@@ -43,6 +44,18 @@ export default class Main extends React.Component {
     }
 
     getContext(queryParamsString) {
+        if (this.state.launched === false) {
+            if (queryParamsString[0] === '?') {
+                queryParamsString = queryParamsString.substr(1);
+            }
+            if (queryParamsString[0] === '$') {
+                queryParamsString = queryParamsString.substr(1);
+            }
+
+            let objArrary = queryParamsString.split('=');
+            let word = objArray[1];
+            return word;
+        }
         const currentContext = this.state.context;
 
         if (queryParamsString[0] === '?') {
@@ -53,7 +66,7 @@ export default class Main extends React.Component {
         }
 
         let objArrary = queryParamsString.split('=');
-        let word = objArray[0];
+        let word = objArray[1];
         if (word.slice(0,5) === 'launch') {
             let appName = word.substr(7, (word.length - 1))
             console.log('appName ' + appName);
@@ -72,7 +85,7 @@ export default class Main extends React.Component {
             () => { newApp.run() })
             return currentContext;
         } else {
-            return objArrary[1];
+            return word;
         }
     }
 
