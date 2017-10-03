@@ -24,6 +24,7 @@ export default class PriceGrid extends React.Component {
             this.setState({
                 ticker: message
             });
+            console.log(this.state);
             this.retrieveQuandlData();
         })
     }

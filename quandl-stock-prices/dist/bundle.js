@@ -50470,6 +50470,7 @@ var PriceGrid = function (_React$Component) {
             _this.setState({
                 ticker: message
             });
+            console.log(_this.state);
             _this.retrieveQuandlData();
         });
         return _this;
