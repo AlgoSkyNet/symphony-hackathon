@@ -59,7 +59,7 @@ export default class Main extends React.Component {
             let objArray = queryParamsString.split('=');
             console.log(objArray)
 
-            if (objArray[1] === '$') {
+            if (objArray[1][0] === '$') {
                 objArray[1] = objArray[1].substr(1);
             }
             this.setState({

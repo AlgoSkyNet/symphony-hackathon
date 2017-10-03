@@ -22496,7 +22496,7 @@ var Main = function (_React$Component) {
                 var objArray = queryParamsString.split('=');
                 console.log(objArray);
 
-                if (objArray[1] === '$') {
+                if (objArray[1][0] === '$') {
                     objArray[1] = objArray[1].substr(1);
                 }
                 this.setState({
