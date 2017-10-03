@@ -22492,15 +22492,13 @@ var Main = function (_React$Component) {
                 if (queryParamsString[0] === '?') {
                     queryParamsString = queryParamsString.substr(1);
                 }
-                if (queryParamsString[0] === '$') {
-                    queryParamsString = queryParamsString.substr(1);
-                }
 
                 var objArrary = queryParamsString.split('=');
+                console.log(objArray);
 
-                if (objArray[1] === '$') {
-                    objArray[1] = objArray[1].substr(1);
-                }
+                // if (objArray[1] === '$') {
+                //     objArray[1] = objArray[1].substr(1);
+                // }
                 this.setState({
                     launched: true
                 });
