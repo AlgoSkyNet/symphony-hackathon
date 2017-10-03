@@ -22509,14 +22509,14 @@ var Main = function (_React$Component) {
                 if (queryParamsString[0] === '?') {
                     queryParamsString = queryParamsString.substr(1);
                 }
-                if (queryParamsString[0] === '$') {
-                    queryParamsString = queryParamsString.substr(1);
-                }
 
                 var _objArray = queryParamsString.split('=');
                 var word = _objArray[1];
+                if (word[0] === '$') {
+                    word = word.substr(1);
+                }
                 if (word.slice(0, 5) === 'launch') {
-                    var appName = word.substr(7, word.length - 1);
+                    var appName = word.split('-')[1];
                     console.log('appName ' + appName);
                     var newApp = new fin.desktop.Application({
                         name: appName,
