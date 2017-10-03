@@ -21,5 +21,10 @@ fin.desktop.main(function(){
   initWpfChart();
 });
 
+fin.desktop.InterApplicationBus.subscribe('*', 'context', (message) => {
+    fin.desktop.InterApplicationBus.publish('tickerSelection', {
+        symboleName: message
+    })
+})
 
 </script>
