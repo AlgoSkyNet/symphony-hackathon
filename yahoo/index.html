@@ -12,9 +12,9 @@
 
 <script>
     fin.desktop.InterApplicationBus.subscribe('*', 'context', (message) => {
-        window.location.href = `https://finance.yahoo.com/quote/${message}`;
+        console.log('got IAB');
+        fin.desktop.Window.getCurrent().navigate(`https://finance.yahoo.com/quote/${message}`, e=>console.log(e),e=>console.log(e))
     })
-    window.location.href = `https://finance.yahoo.com/quote/ibm`;
         
     document.addEventListener("DOMContentLoaded", event => {
 
@@ -34,5 +34,7 @@
             hide(four);
         },500);
     })
+//    fin.desktop.Window.getCurrent().navigate(`https://finance.yahoo.com/quote/ibm`, e=>console.log(e),e=>console.log(e))
+
 </script>
 </html>
