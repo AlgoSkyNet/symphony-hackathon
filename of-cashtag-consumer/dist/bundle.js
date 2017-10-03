@@ -22519,8 +22519,8 @@ var Main = function (_React$Component) {
                 }
                 console.log('LAUNCH TEST');
                 console.log(word);
-                console.log(word.slice(0, 5));
-                if (word.slice(0, 5) === 'launch') {
+                console.log(word.slice(0, 6));
+                if (word.slice(0, 6) === 'launch') {
                     var appName = word.split('-')[1];
                     console.log('appName ' + appName);
                     var newApp = new fin.desktop.Application({
