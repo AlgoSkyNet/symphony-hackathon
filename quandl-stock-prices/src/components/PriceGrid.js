@@ -21,6 +21,7 @@ export default class PriceGrid extends React.Component {
         this.urlString = this.urlString.bind(this);
         this.retrieveQuandlData();
         fin.desktop.InterApplicationBus.subscribe('*', 'context', (message) => {
+            console.log('CONTEXT RECEIVED');
             this.setState({
                 ticker: message
             });

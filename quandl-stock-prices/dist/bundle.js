@@ -50467,6 +50467,7 @@ var PriceGrid = function (_React$Component) {
         _this.urlString = _this.urlString.bind(_this);
         _this.retrieveQuandlData();
         fin.desktop.InterApplicationBus.subscribe('*', 'context', function (message) {
+            console.log('CONTEXT RECEIVED');
             _this.setState({
                 ticker: message
             });
