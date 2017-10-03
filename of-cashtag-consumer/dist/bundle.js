@@ -22483,6 +22483,7 @@ var Main = function (_React$Component) {
     }, {
         key: 'getContext',
         value: function getContext(queryParamsString) {
+            console.log(queryParamsString);
             if (this.state.launched === false) {
                 if (queryParamsString[0] === '?') {
                     queryParamsString = queryParamsString.substr(1);
@@ -22491,13 +22492,13 @@ var Main = function (_React$Component) {
                     queryParamsString = queryParamsString.substr(1);
                 }
 
-                var objArrary = queryParamsString.split('=');
-                console.log(objArray);
-                var word = objArray[1];
+                // let objArrary = queryParamsString.split('=');
+                // console.log(objArray);
+                // let word = objArray[1];
                 this.setState({
                     launched: true
                 });
-                // let word = 'hello'
+                var word = 'hello';
                 return word;
             } else {
                 var currentContext = this.state.context;
@@ -22509,7 +22510,7 @@ var Main = function (_React$Component) {
                     queryParamsString = queryParamsString.substr(1);
                 }
 
-                var _objArrary = queryParamsString.split('=');
+                var objArrary = queryParamsString.split('=');
                 var _word = objArray[1];
                 if (_word.slice(0, 5) === 'launch') {
                     var appName = _word.substr(7, _word.length - 1);

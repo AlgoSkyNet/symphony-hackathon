@@ -47,6 +47,7 @@ export default class Main extends React.Component {
     }
 
     getContext(queryParamsString) {
+        console.log(queryParamsString);
         if (this.state.launched === false) {
             if (queryParamsString[0] === '?') {
                 queryParamsString = queryParamsString.substr(1);
@@ -55,13 +56,13 @@ export default class Main extends React.Component {
                 queryParamsString = queryParamsString.substr(1);
             }
 
-            let objArrary = queryParamsString.split('=');
-            console.log(objArray);
-            let word = objArray[1];
+            // let objArrary = queryParamsString.split('=');
+            // console.log(objArray);
+            // let word = objArray[1];
             this.setState({
                 launched: true
             })
-            // let word = 'hello'
+            let word = 'hello'
             return word;
         } else {
             const currentContext = this.state.context;
