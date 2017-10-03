@@ -50480,7 +50480,7 @@ var PriceGrid = function (_React$Component) {
     _createClass(PriceGrid, [{
         key: 'retrieveQuandlData',
         value: function retrieveQuandlData() {
-            var gContainer = document.getElementById('grid');
+            var gContainer = document.getElementById('root');
             gContainer.innerHTML = '';
             https.get(this.urlString(), function (response) {
                 response.on('data', function (data) {

@@ -31,7 +31,7 @@ export default class PriceGrid extends React.Component {
     }
 
     retrieveQuandlData() {
-        const gContainer = document.getElementById('grid');
+        const gContainer = document.getElementById('root');
         gContainer.innerHTML = '';
         https.get(this.urlString(), (response) => {
             response.on('data', (data) => {
