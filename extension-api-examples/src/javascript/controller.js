@@ -108,7 +108,8 @@ SYMPHONY.remote.hello().then(function(data) {
 
 
                     // NAVIGATE TO OPENFIN FIN PROTOCOL HERE... >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-                    window.location.href = `fins://openfin.github.io/symphony-hackathon/ChartIQ-app/app.json?$$ticker=${cashtag}`
+
+                    window.location.href = `fins://openfin.github.io/symphony-hackathon/of-cashtag-consumer/dist/app.json?$$t=${cashtag}`;
 
                     // var moduleTitle = "OpenFin App: " + cashtag;
                     // modulesService.show("hello-cashtag", {title: moduleTitle}, "hello:controller", "https://localhost:4000/app.html?cashtag=" + cashtag, {
