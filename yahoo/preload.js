@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", event => {
         let two = document.getElementById('mrt-node-Lead-1-FeatureBar')
         let three = document.getElementById('YDC-UH');
         const hide = el => {
-            if(el & el.style.display !== 'none') {
+            if(el && el.style.display !== 'none') {
                 el.style.display = 'none';
             }
         }
