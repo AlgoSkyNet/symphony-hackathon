@@ -22532,8 +22532,12 @@ var Main = function (_React$Component) {
                     }, function () {
                         newApp.run();
                     });
+                    console.log('returning current context');
+                    console.log(currentContext);
                     return currentContext;
                 } else {
+                    console.log('else return word');
+                    console.log(word);
                     return word;
                 }
             }
