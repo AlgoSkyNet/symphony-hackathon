@@ -22440,6 +22440,8 @@ var Main = function (_React$Component) {
         _this.publishContext();
         var app = fin.desktop.Application.getCurrent();
         app.addEventListener('run-requested', function (event) {
+            console.log('run-requested');
+            console.log(event);
             _this.setState({
                 context: _this.getContext(event.userAppConfigArgs)
             });

@@ -11,6 +11,8 @@ export default class Main extends React.Component {
         this.publishContext();
         const app = fin.desktop.Application.getCurrent();
         app.addEventListener('run-requested', (event) => {
+            console.log('run-requested');
+            console.log(event);
             this.setState({
                 context: this.getContext(event.userAppConfigArgs)
             })
