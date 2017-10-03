@@ -3,16 +3,18 @@
     "startup_app": {
         "name": "OpenFin Yahoo Client",
         "description": "Client for Yahoo Finance - running OpenFin",
-        "url": "https://openfin.github.io/symphony-hackathon/yahoo/index.html",
+        "url": "http://localhost:8080/yahoo/index.html",
         "uuid": "OpenFin-Yahoo-udbrfz9sehilik9",
-        "autoShow": true,
+        "autoShow": false,
         "defaultCentered": true,
         "frame": true,
         "defaultHeight": 600,
-        "defaultWidth": 800
+        "defaultWidth": 800,
+        "frameConnect": "all"
     },
     "runtime": {
         "arguments": "--noerrdialogs",
         "version": "beta"
-    }
+    },
+    "shortcut": {}
 }
