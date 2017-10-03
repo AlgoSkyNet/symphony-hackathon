@@ -22479,12 +22479,38 @@ var Main = function (_React$Component) {
     }, {
         key: 'getContext',
         value: function getContext(queryParamsString) {
+            var currentContext = this.state.context;
+
             if (queryParamsString[0] === '?') {
+                queryParamsString = queryParamsString.substr(1);
+            }
+            if (queryParamsString[0] === '$') {
                 queryParamsString = queryParamsString.substr(1);
             }
 
             var objArrary = queryParamsString.split('=');
-            return objArrary[1];
+            var word = objArray[0];
+            if (word.slice(0, 5) === 'launch') {
+                var appName = word.substr(7, word.length - 1);
+                console.log('appName ' + appName);
+                var newApp = new fin.desktop.Application({
+                    name: appName,
+                    url: 'https://openfin.github.io/symphony-hackathon/' + appName + '/index.html',
+                    uuid: appName,
+                    mainWindowOptions: {
+                        defaultHeight: 600,
+                        defaultWidth: 800,
+                        defaultTop: 300,
+                        defaultLeft: 300,
+                        autoShow: true
+                    }
+                }, function () {
+                    newApp.run();
+                });
+                return currentContext;
+            } else {
+                return objArrary[1];
+            }
         }
     }, {
         key: 'render',
