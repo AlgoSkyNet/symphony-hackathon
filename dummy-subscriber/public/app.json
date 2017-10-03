@@ -1,0 +1,18 @@
+{
+    "startup_app": {
+        "name": "BasicTemplate",
+        "description": "A basic OpenFin template",
+        "url": "http://localhost:8888",
+        "uuid": "basictemplateEditMe",
+        "autoShow": true
+    },
+    "runtime": {
+        "arguments": "",
+        "version": "beta"
+    },
+    "shortcut": {
+        "company": "OpenFin",
+        "description": "A simple OpenFin template for Local Dev",
+        "name": "BasicTemplate"
+    }
+}
