@@ -22492,6 +22492,7 @@ var Main = function (_React$Component) {
                 }
 
                 var _objArrary = queryParamsString.split('=');
+                console.log(objArray);
                 var _word = objArray[1];
                 this.setState({
                     launched: true

@@ -56,6 +56,7 @@ export default class Main extends React.Component {
             }
 
             let objArrary = queryParamsString.split('=');
+            console.log(objArray);
             let word = objArray[1];
             this.setState({
                 launched: true
