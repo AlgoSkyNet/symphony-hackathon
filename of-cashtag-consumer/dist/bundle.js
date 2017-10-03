@@ -22469,8 +22469,8 @@ var Main = function (_React$Component) {
 
             this.getRunningApplications().then(function (appsArray) {
                 appsArray.forEach(function (app) {
-                    fin.desktop.InterApplicationBus.send(app.uuid, 'context', _this2.state.context);
-                    console.log(app.uuid);
+                    fin.desktop.InterApplicationBus.send(app, 'context', _this2.state.context);
+                    console.log(app);
                 });
             });
         }

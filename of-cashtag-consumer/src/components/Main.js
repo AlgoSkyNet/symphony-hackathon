@@ -34,8 +34,8 @@ export default class Main extends React.Component {
     publishContext() {
         this.getRunningApplications().then((appsArray) => {
             appsArray.forEach(app => {
-                fin.desktop.InterApplicationBus.send(app.uuid, 'context', this.state.context)
-                console.log(app.uuid);
+                fin.desktop.InterApplicationBus.send(app, 'context', this.state.context)
+                console.log(app);
             })
         })
     }
