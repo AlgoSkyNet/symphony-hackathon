@@ -20,6 +20,12 @@ export default class PriceGrid extends React.Component {
         };
         this.urlString = this.urlString.bind(this);
         this.retrieveQuandlData();
+        fin.desktop.InterApplicationBus.subscribe('*', 'context', (message) => {
+            this.setState({
+                ticker: message
+            });
+            this.retrieveQuandlData();
+        })
     }
 
     retrieveQuandlData() {
@@ -27,15 +33,27 @@ export default class PriceGrid extends React.Component {
             response.on('data', (data) => {
                 const dataJson = JSON.parse(data.toString());
                 const dataValues = dataJson.datatable.data;
-                console.log(dataValues)
-                const columnNames = dataJson.datatable.columns.map(column => {  return column.name });
-                console.log(columnNames)
-                const myGrid = new Hypergrid('#grid', { data: dataValues });
-                console.log(myGrid)
-                console.log('hello')
+                const columnNames = dataJson.datatable.columns.map(column => { return column.name });
+                let dataToPublish = [];
+                const myVals = dataValues.map(dataRow => {
+                    dataRow.map((val, index) => {
+                        return { [columnNames[index]]: val }
+                    })
+                })
+                let myData = [];
+                for (let i = 0; i < dataValues.length; i++) {
+                    let row = {};
+                    for (let j = 0; j < columnNames.length; j++) {
+                        row[columnNames[j]] = dataValues[i][j];
+                    }
+                    myData.push(row);
+                }
+                const myGrid = new Hypergrid('#grid', { data: myData });
+                myGrid.properties.renderFaldy = true;
             });
         });
     }
+
     generateDates(startDate, endDate) {
         let start = moment(startDate);
         let end = moment(endDate);

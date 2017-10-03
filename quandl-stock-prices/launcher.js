@@ -5,9 +5,9 @@ const app = express()
 
 app.use(express.static('dist'))
 
-let localApp = app.listen(3000, () => {
+let localApp = app.listen(8888, () => {
     openfinLauncher.launchOpenFin({
-        configPath: 'http://localhost:3000/app.json'
+        configPath: 'http://localhost:8888/app.json'
     }).then(() => {
         localApp.close()
     }).fail((error) => {

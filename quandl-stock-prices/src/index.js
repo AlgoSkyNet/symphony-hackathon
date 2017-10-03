@@ -5,7 +5,7 @@ import PriceGrid from './components/PriceGrid';
 function App() {
     return(
         <div>
-            <PriceGrid start='2001-01-29' end='2001-02-04' ticker='A'/>
+            <PriceGrid start='2017-09-05' end='2017-10-02' ticker='A'/>
         </div>
     )
 }
