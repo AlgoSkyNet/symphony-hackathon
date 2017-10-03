@@ -22493,48 +22493,49 @@ var Main = function (_React$Component) {
                     queryParamsString = queryParamsString.substr(1);
                 }
 
-                var objArrary = queryParamsString.split('=');
+                var objArray = queryParamsString.split('=');
                 console.log(objArray);
 
-                // if (objArray[1] === '$') {
-                //     objArray[1] = objArray[1].substr(1);
-                // }
+                if (objArray[1] === '$') {
+                    objArray[1] = objArray[1].substr(1);
+                }
                 this.setState({
                     launched: true
                 });
                 return objArray[1];
             } else {
-                // const currentContext = this.state.context;
+                var currentContext = this.state.context;
 
-                // if (queryParamsString[0] === '?') {
-                //     queryParamsString = queryParamsString.substr(1);
-                // }
-                // if (queryParamsString[0] === '$') {
-                //     queryParamsString = queryParamsString.substr(1);
-                // }
+                if (queryParamsString[0] === '?') {
+                    queryParamsString = queryParamsString.substr(1);
+                }
+                if (queryParamsString[0] === '$') {
+                    queryParamsString = queryParamsString.substr(1);
+                }
 
-                // let objArrary = queryParamsString.split('=');
-                // let word = objArray[1];
-                // if (word.slice(0,5) === 'launch') {
-                //     let appName = word.substr(7, (word.length - 1))
-                //     console.log('appName ' + appName);
-                //     const newApp = new fin.desktop.Application({
-                //         name: appName,
-                //         url: 'https://openfin.github.io/symphony-hackathon/' + appName + '/index.html',
-                //         uuid: appName,
-                //         mainWindowOptions: {
-                //             defaultHeight: 600,
-                //             defaultWidth: 800,
-                //             defaultTop: 300,
-                //             defaultLeft: 300,
-                //             autoShow: true
-                //         }
-                //     },
-                //     () => { newApp.run() })
-                //     return currentContext;
-                // } else {
-                //     return word;
-                // }
+                var _objArray = queryParamsString.split('=');
+                var word = _objArray[1];
+                if (word.slice(0, 5) === 'launch') {
+                    var appName = word.substr(7, word.length - 1);
+                    console.log('appName ' + appName);
+                    var newApp = new fin.desktop.Application({
+                        name: appName,
+                        url: 'https://openfin.github.io/symphony-hackathon/' + appName + '/index.html',
+                        uuid: appName,
+                        mainWindowOptions: {
+                            defaultHeight: 600,
+                            defaultWidth: 800,
+                            defaultTop: 300,
+                            defaultLeft: 300,
+                            autoShow: true
+                        }
+                    }, function () {
+                        newApp.run();
+                    });
+                    return currentContext;
+                } else {
+                    return word;
+                }
             }
         }
     }, {
