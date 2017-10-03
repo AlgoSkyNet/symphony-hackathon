@@ -1,0 +1,13 @@
+{
+  "applications": [
+    {
+      "type": "sandbox",
+      "id": "hello",
+      "name": "OpenFin",
+      "blurb": "This is a OpenFin app with a few example extension API invocations!",
+      "publisher": "Symphony",
+      "url": "https://localhost:4000/controller.html",
+      "domain": "localhost"
+    }
+  ]
+}
