@@ -50480,6 +50480,8 @@ var PriceGrid = function (_React$Component) {
     _createClass(PriceGrid, [{
         key: 'retrieveQuandlData',
         value: function retrieveQuandlData() {
+            var gContainer = document.getElementById('grid');
+            gContainer.innerHTML = '';
             https.get(this.urlString(), function (response) {
                 response.on('data', function (data) {
                     var dataJson = JSON.parse(data.toString());
@@ -50502,7 +50504,7 @@ var PriceGrid = function (_React$Component) {
                         myData.push(row);
                     }
                     var myGrid = new Hypergrid('#grid', { data: myData });
-                    myGrid.properties.renderFaldy = true;
+                    myGrid.properties.renderFalsy = true;
                 });
             });
         }

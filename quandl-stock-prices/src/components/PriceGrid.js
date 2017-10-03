@@ -31,6 +31,8 @@ export default class PriceGrid extends React.Component {
     }
 
     retrieveQuandlData() {
+        const gContainer = document.getElementById('grid');
+        gContainer.innerHTML = '';
         https.get(this.urlString(), (response) => {
             response.on('data', (data) => {
                 const dataJson = JSON.parse(data.toString());
@@ -51,7 +53,7 @@ export default class PriceGrid extends React.Component {
                     myData.push(row);
                 }
                 const myGrid = new Hypergrid('#grid', { data: myData });
-                myGrid.properties.renderFaldy = true;
+                myGrid.properties.renderFalsy = true;
             });
         });
     }
