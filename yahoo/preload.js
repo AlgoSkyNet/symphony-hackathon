@@ -4,7 +4,7 @@ fin.desktop.InterApplicationBus.subscribe('*', 'context', (message) => {
 })
 
 document.addEventListener("DOMContentLoaded", event => {
-//    setInterval(()=> {
+    setInterval(()=> {
         let one = document.getElementById('mrt-node-Lead-0-FinanceHeader')
         let two = document.getElementById('mrt-node-Lead-1-FeatureBar')
         let three = document.getElementById('YDC-UH');
@@ -18,5 +18,5 @@ document.addEventListener("DOMContentLoaded", event => {
         hide(two);
         hide(three);
         hide(four);
-  //  },500);
+    },500);
 })
