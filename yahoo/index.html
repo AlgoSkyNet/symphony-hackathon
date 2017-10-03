@@ -11,30 +11,78 @@
 </body>
 
 <script>
-    fin.desktop.InterApplicationBus.subscribe('*', 'context', (message) => {
-        console.log('got IAB');
-        fin.desktop.Window.getCurrent().navigate(`https://finance.yahoo.com/quote/${message}`, e=>console.log(e),e=>console.log(e))
-    })
-        
-    document.addEventListener("DOMContentLoaded", event => {
 
-        setInterval(()=> {
-            let one = document.getElementById('mrt-node-Lead-0-FinanceHeader')
-            let two = document.getElementById('mrt-node-Lead-1-FeatureBar')
-            let three = document.getElementById('YDC-UH');
-            let four = document.getElementById('Nav-0-DesktopNav');
-            const hide = el => {
-                if(el & el.style.display !== 'none') {
-                    el.style.display = 'none';
-                }
+        // setInterval(()=> {
+        //     let one = document.getElementById('mrt-node-Lead-0-FinanceHeader')
+        //     let two = document.getElementById('mrt-node-Lead-1-FeatureBar')
+        //     let three = document.getElementById('YDC-UH');
+        //     let four = document.getElementById('Nav-0-DesktopNav');
+        //     const hide = el => {
+        //         if(el & el.style.display !== 'none') {
+        //             el.style.display = 'none';
+        //         }
+        //     }
+        //     hide(one);
+        //     hide(two);
+        //     hide(three);
+        //     hide(four);
+        // },500);
+    document.addEventListener("DOMContentLoaded", () => {
+
+        let app;
+
+        fin.desktop.InterApplicationBus.subscribe('*', 'context', (message) => {
+            console.log('got IAB');
+            if(app) { 
+                let win = app.getWindow();
+                win.navigate(`https://finance.yahoo.com/quote/${message}`, e=>console.log(e), e=>console.log(e))
             }
-            hide(one);
-            hide(two);
-            hide(three);
-            hide(four);
-        },500);
+        })
+        let newApp = (ticker) => {
+            return new fin.desktop.Application({
+                uuid: `yahoo${ticker}`,
+                name: `yahoo${ticker}`,
+                url: `https://finance.yahoo.com/quote/${ticker}`,
+                mainWindowOptions: {
+                    defaultHeight: 600,
+                    defaultWidth: 800,
+                    defaultTop: 300,
+                    defaultLeft: 300,
+                    autoShow: true
+                }
+            }, function () {
+                app.run(()=> {
+                    // let appWin = app.getWindow();
+                    // let _win = appWin.getNativeWindow();
+                    // _win.addEventListener("DOMContentLoaded", () => { 
+                    //     _win.setInterval(()=> {
+                    //         console.log('in setint')
+                    //         let one = _win.document.getElementById('mrt-node-Lead-0-FinanceHeader')
+                    //         console.log(one)
+                    //         let two = _win.document.getElementById('mrt-node-Lead-1-FeatureBar')
+                    //         let three = _win.document.getElementById('YDC-UH');
+                    //         let four = _win.document.getElementById('Nav-0-DesktopNav');
+                    //         const hide = el => {
+                    //             if(el & el.style.display !== 'none') {
+                    //                 el.style.display = 'none';
+                    //             }
+                    //         }
+                    //         hide(one);
+                    //         hide(two);
+                    //         hide(three);
+                    //         hide(four);
+                    //     },500);
+                    // });
+
+                });
+                console.log('success')
+            }, function (error) {
+                console.log("Error creating window:", error);
+            });
+        }
+        app = newApp('ibm')
     })
-    fin.desktop.Window.getCurrent().navigate(`https://finance.yahoo.com/quote/ibm`, e=>console.log(e),e=>console.log(e))
+    
 
 </script>
 </html>
