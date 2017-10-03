@@ -22435,8 +22435,11 @@ var Main = function (_React$Component) {
         _this.state = {
             subscribers: [],
             launched: false,
-            context: _this.getContext(window.location.search)
+            context: ''
         };
+        _this.setState({
+            context: _this.getContext(window.location.search)
+        });
         _this.publishContext();
         var app = fin.desktop.Application.getCurrent();
         app.addEventListener('run-requested', function (event) {
@@ -22490,6 +22493,9 @@ var Main = function (_React$Component) {
 
                 var _objArrary = queryParamsString.split('=');
                 var _word = objArray[1];
+                this.setState({
+                    launched: true
+                });
                 return _word;
             }
             var currentContext = this.state.context;

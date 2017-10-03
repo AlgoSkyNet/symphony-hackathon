@@ -6,8 +6,11 @@ export default class Main extends React.Component {
         this.state = {
             subscribers: [],
             launched: false,
-            context: this.getContext(window.location.search)
+            context: ''
         }
+        this.setState({
+            context: this.getContext(window.location.search)
+        });
         this.publishContext();
         const app = fin.desktop.Application.getCurrent();
         app.addEventListener('run-requested', (event) => {
@@ -54,6 +57,9 @@ export default class Main extends React.Component {
 
             let objArrary = queryParamsString.split('=');
             let word = objArray[1];
+            this.setState({
+                launched: true
+            })
             return word;
         }
         const currentContext = this.state.context;
