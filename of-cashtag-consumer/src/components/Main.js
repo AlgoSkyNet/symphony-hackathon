@@ -80,6 +80,9 @@ export default class Main extends React.Component {
             if (word[0] === '$') {
                 word = word.substr(1)
             }
+            console.log('LAUNCH TEST')
+            console.log(word)
+            console.log(word.slice(0,5))
             if (word.slice(0,5) === 'launch') {
                 let appName = word.split('-')[1]
                 console.log('appName ' + appName);
