@@ -3,7 +3,7 @@
     "startup_app": {
         "name": "OpenfinPOC",
         "description": "OpenFin POC",
-        "url": "http://localhost:5555",
+        "url": "https://openfin.github.io/symphony-hackathon/of-cashtag-consumer/dist/index.html",
         "uuid": "OpenfinPOC-0a0raps4025fvpq090qsacq5mi",
         "autoShow": true
     },
@@ -14,6 +14,6 @@
     "shortcut": {
         "company": "OpenFin",
         "description": "Openfin POC",
-        "name": "Openfin POC"
+        "name": "OF Cashtag Consumer"
     }
 }
