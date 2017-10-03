@@ -2,7 +2,7 @@
     "startup_app": {
         "name": "ChartIQ",
         "description": "ChartIQ Demo App",
-        "url": "http://localhost:5011/index.html",
+        "url": "https://openfin.github.io/symphony-hackathon/ChartIQ-app/index.html",
         "icon": "http://cdn.openfin.co/demos/hyperblotter/images/hyperblotter_icon.ico",
         "uuid": "chartIQ-demo",
         "autoShow": false
@@ -13,7 +13,7 @@
     },
     "appAssets": [
         {
-            "src": "http://localhost:5011/assets/HyperblotterChart.zip",
+            "src": "https://openfin.github.io/symphony-hackathon/ChartIQ-app/assets/HyperblotterChart.zip",
             "alias": "hyperblotter-chart",
             "target": "HyperblotterChart.exe",
             "version": "1.0.0"
